@@ -1,0 +1,7 @@
+<label *ngIf="label" for="item-input">{{label}}</label>
+
+<input [value]="value" (change)="onChangeInput">
+
+<ul *ngIf="errors.length !== 0">
+    <li *ngFor="let error of errors">{{error}}</li>
+</ul>
