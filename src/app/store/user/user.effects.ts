@@ -40,7 +40,7 @@ export class UserEffects {
       ofType(UserActions.editUser),
       mergeMap(action =>
         this.userService.editUser(action.user).pipe(
-          map(user => UserActions.editUserSuccess({ user })),
+          map((user) => UserActions.editUserSuccess({ user })),
           catchError(error => of(UserActions.editUserFailure({ error })))
         )
       )
@@ -54,7 +54,8 @@ export class UserEffects {
         this.userService.deleteUser(action.userId).pipe(
           map(() => UserActions.deleteUserSuccess()),
           catchError(error => of(UserActions.deleteUserFailure({ error })))
-        )
+        ),
+        UserActions.loadUsers
       )
     )
   );

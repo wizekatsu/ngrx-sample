@@ -22,6 +22,6 @@ export const deleteUserSuccess = createAction('[User] Delete User Success');
 export const deleteUserFailure = createAction('[User] Delete User Failure', props<{ error: string }>());
 
 /** ユーザー新規作成のaction */
-export const createUser = createAction('[User] Create User', props<{ user: User }>());
+export const createUser = createAction('[User] Create User', props<{ user: Omit<User,'id'> }>());
 export const createUserSuccess = createAction('[User] Create User Success', props<{ user: User }>());
 export const createUserFailure = createAction('[User] Create User Failure', props<{ error: string }>());
